@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.9</title>
+</head>
+<body>
+
+    <h1>Traductor a latín cerdo</h1>
+
+    <form onsubmit="traducir(event)">
+
+        <label>Ingrese una frase en español:</label>
+
+        <br><br>
+
+        <input type="text" id="frase" size="50" required>
+
+        <button type="submit">Traducir</button>
+
+    </form>
+
+    <h3>Frases traducidas:</h3>
+
+    <textarea id="resultado" rows="12" cols="60"
+        readonly></textarea>
+
+    <script>
+
+        // Traducir una palabra
+        function imprimirPalabraEnLatin(palabra) {
+
+            let primeraLetra = palabra.charAt(0);
+            let resto = palabra.substring(1);
+
+            return resto + primeraLetra + "ae";
+        }
+
+        function traducir(event) {
+
+            event.preventDefault();
+
+            let frase = document.getElementById("frase").value;
+
+            // Separar la frase en palabras
+            let palabras = frase.split(" ");
+
+            let traduccion = "";
+
+            // Traducir cada palabra
+            for (let i = 0; i < palabras.length; i++) {
+
+                traduccion += imprimirPalabraEnLatin(palabras[i]);
+
+                if (i < palabras.length - 1) {
+                    traduccion += " ";
+                }
+            }
+
+            // Agregar la traducción al textarea
+            let resultado = document.getElementById("resultado");
+
+            resultado.value += traduccion + "\n";
+
+            // Limpiar el campo de entrada
+            document.getElementById("frase").value = "";
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.14</title>
+</head>
+<body>
+
+    <h1>Contador de letras del alfabeto</h1>
+
+    <form onsubmit="contarLetras(event)">
+
+        <label>Ingrese varias líneas de texto:</label>
+        <br><br>
+
+        <textarea id="texto" rows="6" cols="50" required></textarea>
+
+        <br><br>
+
+        <button type="submit">Contar letras</button>
+
+    </form>
+
+    <h3>Resultados:</h3>
+
+    <textarea id="resultado" rows="28" cols="40" readonly></textarea>
+
+    <script>
+
+        function contarLetras(event) {
+            event.preventDefault();
+
+            let texto = document.getElementById("texto").value.toLowerCase();
+
+            // Arreglo de 26 posiciones
+            let contadores = new Array(26).fill(0);
+
+            let alfabeto = "abcdefghijklmnopqrstuvwxyz";
+
+            // Contar cada letra
+            for (let i = 0; i < alfabeto.length; i++) {
+
+                let posicion = texto.indexOf(alfabeto[i]);
+
+                while (posicion !== -1) {
+
+                    contadores[i]++;
+
+                    posicion = texto.indexOf(
+                        alfabeto[i], posicion + 1
+                    );
+                }
+            }
+
+            // Crear tabla de resultados
+            let resultado = "LETRA     OCURRENCIAS\n";
+            resultado += "----------------------\n";
+
+            for (let i = 0; i < 26; i++) {
+
+                resultado +=
+                    alfabeto[i] + "             " +
+                    contadores[i] + "\n";
+            }
+
+            document.getElementById("resultado").value = resultado;
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

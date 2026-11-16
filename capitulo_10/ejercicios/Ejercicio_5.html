@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10.12</title>
+</head>
+<body>
+
+    <h1>Ejercicio 10.12</h1>
+    <h2>Identificar números duplicados</h2>
+
+    <form id="formulario">
+        <label>Ingrese un número entre 10 y 100:</label>
+        <input type="number" id="numero" min="10" max="100" required>
+        <button type="submit">Agregar número</button>
+    </form>
+
+    <p id="resultado"></p>
+    <p id="contador"></p>
+
+    <script>
+
+        // Arreglo para almacenar números diferentes
+        let numeros = [];
+
+        document.getElementById("formulario").onsubmit = function(event) {
+            event.preventDefault();
+
+            let numero = Number(document.getElementById("numero").value);
+
+            if (numero < 10 || numero > 100 || !Number.isInteger(numero)) {
+                alert("Ingrese un número entero entre 10 y 100");
+                return;
+            }
+
+            if (numeros.length >= 10) {
+                alert("Ya se ingresaron los 10 números");
+                return;
+            }
+
+            if (!numeros.includes(numero)) {
+                numeros.push(numero);
+
+                document.getElementById("resultado").innerHTML +=
+                    numero + " ";
+            } else {
+                alert("El número ya fue ingresado");
+            }
+
+            document.getElementById("contador").innerHTML =
+                "Números ingresados: " + (numeros.length) +
+                " de 10";
+
+            document.getElementById("numero").value = "";
+
+            if (numeros.length === 10) {
+                alert("Se completaron los 10 números diferentes");
+            }
+        };
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap10.html"> 
+        <p> Regresar </p>   
+    </a>

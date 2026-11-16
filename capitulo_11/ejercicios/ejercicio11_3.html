@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.5</title>
+</head>
+<body>
+
+    <h1>Redondeo de números con Math.round</h1>
+
+    <label>Ingrese un número:</label>
+    <input type="number" id="numero" step="any">
+
+    <button onclick="redondear()">Redondear</button>
+
+    <h3>Resultados:</h3>
+    <div id="resultado"></div>
+
+    <script>
+
+        // Redondear al entero más cercano
+        function redondearAEntero(numero) {
+            return Math.round(numero);
+        }
+
+        // Redondear a décimas
+        function redondearADecimas(numero) {
+            return Math.round(numero * 10) / 10;
+        }
+
+        // Redondear a centésimas
+        function redondearACentesimas(numero) {
+            return Math.round(numero * 100) / 100;
+        }
+
+        // Redondear a milésimas
+        function redondearAMilesimas(numero) {
+            return Math.round(numero * 1000) / 1000;
+        }
+
+        function redondear() {
+
+            let numero = Number(document.getElementById("numero").value);
+
+            document.getElementById("resultado").innerHTML =
+                "Número original: " + numero + "<br>" +
+                "Entero: " + redondearAEntero(numero) + "<br>" +
+                "Décimas: " + redondearADecimas(numero) + "<br>" +
+                "Centésimas: " + redondearACentesimas(numero) + "<br>" +
+                "Milésimas: " + redondearAMilesimas(numero);
+
+        }
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

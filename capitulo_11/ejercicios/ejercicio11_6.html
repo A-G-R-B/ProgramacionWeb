@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.8</title>
+</head>
+<body>
+
+    <h1>Generador de quintillas</h1>
+
+    <button onclick="generarQuintilla()">Generar quintilla</button>
+
+    <br><br>
+
+    <textarea id="poema" rows="10" cols="60" readonly></textarea>
+
+    <script>
+
+        // Versos que terminan en rima A
+        let versosA = [
+            "Un pequeño gato salió al balcón",
+            "Un alegre muchacho cantó una canción",
+            "Una estrella brillaba con gran emoción",
+            "Un viejo viajero encontró un dragón",
+            "Un perro bailaba junto al portón"
+        ];
+
+        // Versos que terminan en rima B
+        let versosB = [
+            "La luna brillaba durante el día",
+            "Un pájaro cantaba con alegría",
+            "El viento soplaba y todo se movía",
+            "Una mariposa volaba y sonreía",
+            "El río cantaba con melodía"
+        ];
+
+        function aleatorio(arreglo) {
+            let indice = Math.floor(Math.random() * arreglo.length);
+            return arreglo[indice];
+        }
+
+        function generarQuintilla() {
+
+            let quintilla =
+                aleatorio(versosA) + "\n" +
+                aleatorio(versosA) + "\n" +
+                aleatorio(versosB) + "\n" +
+                aleatorio(versosB) + "\n" +
+                aleatorio(versosA);
+
+            document.getElementById("poema").value = quintilla;
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

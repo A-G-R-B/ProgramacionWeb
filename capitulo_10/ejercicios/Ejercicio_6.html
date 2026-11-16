@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10.13</title>
+</head>
+<body>
+
+    <h1>Ejercicio 10.13</h1>
+    <h2>Arreglo bidimensional ventas</h2>
+
+    <pre><code>
+// Crear el arreglo de 3 filas por 5 columnas
+let ventas = [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15]
+];
+
+// Recorrer las filas y columnas
+for (let fila in ventas) {
+    for (let col in ventas[fila]) {
+        ventas[fila][col] = 0;
+    }
+}
+
+// Mostrar el resultado
+document.write("Arreglo después de inicializar:<br>");
+
+for (let fila of ventas) {
+    document.write(fila.join(" | ") + "<br>");
+}
+    </code></pre>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap10.html"> 
+        <p> Regresar </p>   
+    </a>

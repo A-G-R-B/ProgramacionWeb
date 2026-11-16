@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tortuga Mecánica</title>
+</head>
+<body>
+
+    <h1>Simulación de la tortuga mecánica</h1>
+
+    <p>Ingrese los comandos separados por comas:</p>
+
+    <textarea id="comandos" rows="3" cols="50">2,5,5,3,5,4,5,6,9</textarea>
+
+    <br><br>
+
+    <button onclick="ejecutar()">Ejecutar comandos</button>
+
+    <h3>Resultado del dibujo:</h3>
+    <pre id="piso"></pre>
+
+    <h3>Estado de la tortuga:</h3>
+    <p id="estado"></p>
+
+    <script>
+
+        // Crear piso de 20 por 20 inicializado en ceros
+        let piso = [];
+
+        for (let i = 0; i < 20; i++) {
+            piso[i] = [];
+
+            for (let j = 0; j < 20; j++) {
+                piso[i][j] = 0;
+            }
+        }
+
+        // Posición inicial
+        let fila = 0;
+        let columna = 0;
+
+        // Direcciones: derecha, abajo, izquierda, arriba
+        let direccion = 0;
+
+        // La pluma comienza arriba
+        let pluma = false;
+
+        function ejecutar() {
+
+            // Reiniciar el piso
+            for (let i = 0; i < 20; i++) {
+                piso[i].fill(0);
+            }
+
+            fila = 0;
+            columna = 0;
+            direccion = 0;
+            pluma = false;
+
+            // Obtener comandos
+            let comandos = document.getElementById("comandos")
+                .value.split(/[\s,]+/)
+                .filter(x => x !== "")
+                .map(Number);
+
+            for (let i = 0; i < comandos.length; i++) {
+
+                let comando = comandos[i];
+
+                switch (comando) {
+
+                    case 1:
+                        // Pluma arriba
+                        pluma = false;
+                        break;
+
+                    case 2:
+                        // Pluma abajo
+                        pluma = true;
+                        break;
+
+                    case 3:
+                        // Girar a la derecha
+                        direccion = (direccion + 1) % 4;
+                        break;
+
+                    case 4:
+                        // Girar a la izquierda
+                        direccion = (direccion + 3) % 4;
+                        break;
+
+                    case 5:
+                        // Avanzar el número indicado de espacios
+                        let espacios = comandos[++i];
+
+                        if (!Number.isInteger(espacios) || espacios < 0) {
+                            alert("Indique una cantidad válida de espacios.");
+                            return;
+                        }
+
+                        for (let j = 0; j < espacios; j++) {
+
+                            // Mover la tortuga
+                            switch (direccion) {
+
+                                case 0:
+                                    columna++;
+                                    break;
+
+                                case 1:
+                                    fila++;
+                                    break;
+
+                                case 2:
+                                    columna--;
+                                    break;
+
+                                case 3:
+                                    fila--;
+                                    break;
+                            }
+
+                            // Dibujar si la pluma está abajo
+                            if (pluma && fila >= 0 && fila < 20 &&
+                                columna >= 0 && columna < 20) {
+
+                                piso[fila][columna] = 1;
+                            }
+
+                            // Evitar salir del piso
+                            if (fila < 0 || fila >= 20 ||
+                                columna < 0 || columna >= 20) {
+                                alert("La tortuga llegó al límite del piso.");
+                                break;
+                            }
+                        }
+                        break;
+
+                    case 6:
+                        // Imprimir el piso
+                        mostrarPiso();
+                        break;
+
+                    case 9:
+                        // Fin de datos
+                        mostrarPiso();
+                        document.getElementById("estado").innerHTML =
+                            "Fin de los comandos.";
+                        return;
+
+                    default:
+                        alert("Comando no válido: " + comando);
+                        return;
+                }
+            }
+
+            mostrarPiso();
+
+            document.getElementById("estado").innerHTML =
+                "Fila: " + fila +
+                " | Columna: " + columna +
+                " | Pluma: " + (pluma ? "Abajo" : "Arriba");
+        }
+
+        // Mostrar el arreglo de 20 por 20
+        function mostrarPiso() {
+
+            let texto = "";
+
+            for (let i = 0; i < 20; i++) {
+
+                for (let j = 0; j < 20; j++) {
+
+                    texto += piso[i][j] + " ";
+                }
+
+                texto += "\n";
+            }
+
+            document.getElementById("piso").textContent = texto;
+        }
+
+        // Mostrar piso inicial
+        mostrarPiso();
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap10.html"> 
+        <p> Regresar </p>   
+    </a>

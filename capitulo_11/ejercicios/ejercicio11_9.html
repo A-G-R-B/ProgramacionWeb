@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.12</title>
+</head>
+<body>
+
+    <h1>Convertir texto</h1>
+
+    <form onsubmit="convertir(event)">
+
+        <label>Ingrese un texto:</label>
+        <br><br>
+
+        <textarea id="texto" rows="4" cols="50" required></textarea>
+
+        <br><br>
+
+        <button type="submit">Convertir</button>
+
+    </form>
+
+    <h3>Mayúsculas:</h3>
+    <p id="mayusculas"></p>
+
+    <h3>Minúsculas:</h3>
+    <p id="minusculas"></p>
+
+    <script>
+
+        function convertir(event) {
+            event.preventDefault();
+
+            let texto = document.getElementById("texto").value;
+
+            document.getElementById("mayusculas").textContent =
+                texto.toUpperCase();
+
+            document.getElementById("minusculas").textContent =
+                texto.toLowerCase();
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

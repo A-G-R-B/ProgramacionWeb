@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.7</title>
+</head>
+<body>
+
+    <h1>Generador de historias</h1>
+
+    <button onclick="generarHistoria()">Generar historia</button>
+
+    <br><br>
+
+    <textarea id="historia" rows="25" cols="60"
+        readonly></textarea>
+
+    <script>
+
+        // Arreglos de palabras
+        let articulo = ["el", "un", "algún", "ningún"];
+
+        let sustantivo = [
+            "niño", "niña", "perro", "ciudad", "auto"
+        ];
+
+        let verbo = [
+            "manejó", "saltó", "corrió", "caminó", "omitió"
+        ];
+
+        let preposicion = [
+            "a", "desde", "encima de", "debajo de", "sobre"
+        ];
+
+        // Seleccionar una palabra aleatoria
+        function palabraAleatoria(arreglo) {
+            let indice = Math.floor(Math.random() * arreglo.length);
+            return arreglo[indice];
+        }
+
+        function generarHistoria() {
+
+            let texto = "Habia una vez...\n\n";
+
+            for (let i = 0; i < 20; i++) {
+
+                let enunciado =
+                    palabraAleatoria(articulo) + " " +
+                    palabraAleatoria(sustantivo) + " " +
+                    palabraAleatoria(verbo) + " " +
+                    palabraAleatoria(preposicion) + " " +
+                    palabraAleatoria(articulo) + " " +
+                    palabraAleatoria(sustantivo) + ".";
+
+                // Primera letra mayúscula
+                enunciado =
+                    enunciado.charAt(0).toUpperCase() +
+                    enunciado.slice(1);
+
+                texto += enunciado + "\n";
+            }
+
+            texto += "\nFIN";
+
+            document.getElementById("historia").value = texto;
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

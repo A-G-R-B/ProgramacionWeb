@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.4</title>
+</head>
+<body>
+
+    <h1>Redondeo de números con Math.floor</h1>
+
+    <label>Ingrese un número:</label>
+    <input type="number" id="numero" step="any">
+
+    <button onclick="redondear()">Redondear</button>
+
+    <h3>Resultados:</h3>
+    <div id="resultado"></div>
+
+    <script>
+
+        // Redondear al entero más cercano
+        function redondearAEntero(numero) {
+            return Math.floor(numero + 0.5);
+        }
+
+        // Redondear a décimas
+        function redondearADecimas(numero) {
+            return Math.floor(numero * 10 + 0.5) / 10;
+        }
+
+        // Redondear a centésimas
+        function redondearACentesimas(numero) {
+            return Math.floor(numero * 100 + 0.5) / 100;
+        }
+
+        // Redondear a milésimas
+        function redondearAMilesimas(numero) {
+            return Math.floor(numero * 1000 + 0.5) / 1000;
+        }
+
+        function redondear() {
+
+            let numero = Number(document.getElementById("numero").value);
+
+            document.getElementById("resultado").innerHTML =
+                "Número original: " + numero + "<br>" +
+                "Entero: " + redondearAEntero(numero) + "<br>" +
+                "Décimas: " + redondearADecimas(numero) + "<br>" +
+                "Centésimas: " + redondearACentesimas(numero) + "<br>" +
+                "Milésimas: " + redondearAMilesimas(numero);
+
+        }
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

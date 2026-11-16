@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios de JavaScript</title>
+</head>
+<body>
+
+    <h1>Ejercicios de JavaScript</h1>
+
+    <h2>a) Mostrar el séptimo elemento del arreglo f</h2>
+    <pre><code>document.write(f[6]);</code></pre>
+
+    <h2>b) Inicializar los cinco elementos del arreglo g</h2>
+    <pre><code>let g = [i, i, i, i, i];</code></pre>
+
+    <h2>c) Calcular el total de los elementos del arreglo c</h2>
+    <pre><code>
+let total = 0;
+
+for (let i = 0; i < 100; i++) {
+    total += c[i];
+}
+    </code></pre>
+
+    <h2>d) Copiar el arreglo a en el arreglo b</h2>
+    <pre><code>
+for (let i = 0; i < 11; i++) {
+    b[i] = a[i];
+}
+    </code></pre>
+
+    <h2>e) Encontrar el valor menor y mayor del arreglo w</h2>
+    <pre><code>
+let menor = w[0];
+let mayor = w[0];
+
+for (let i = 1; i < 99; i++) {
+    if (w[i] < menor) {
+        menor = w[i];
+    }
+
+    if (w[i] > mayor) {
+        mayor = w[i];
+    }
+}
+
+document.write("Valor menor: " + menor);
+document.write("Valor mayor: " + mayor);
+    </code></pre>
+
+</body>
+</html>
+
+<a href = "../ejercicios/ejercicios_cap10.html">
+    <p> Regresar </p>
+</a>

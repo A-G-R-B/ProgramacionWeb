@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<!-- Fig. 11.17: BusquedasFavoritasTwitter.html -->
+<!-- Aplicacion web de busqueda favoritas de twitter. -->
+<html>
+    <head>
+        <title>B&uacute;squedas de Twitter</title>
+        <link rel="stylesheets" type="text/css" href="estilo.css">
+        <script src="BusquedasTwitter.js"></script>
+    </head>
+    <body>
+        <h1>B&uacute;squedas favoritas de Twitter</h1>
+        <p id="mensajeBienvenida"></p>
+        <form action="#">
+            <p><input id="consulta" type="text" 
+                placeholder="Introduzca la consulta de b&uacute;squeda de twitter">
+                <a href=""https://dev.twitter.com/docs/using-search">
+                    Operadores de b&uacute;squeda de twitter</a></p>
+            <p><input id="etiqueta" type="text" placeholder="Etiqueta su consulta">
+                <input type="button" value="Guardar"
+                    id="botonGuardar">
+                <input type="button" value="Borrar todas las b&uacute;squedas guardadas"
+                    id="botonBorrar"></p>
+        </form>
+        <h1>B&uacute;squedas etiquetadas previamente</h1>
+        <div id="busquedas"></div>
+    </body>
+</html>
+
+<a href="../../ejemplos/ejemploscap11.html">
+    <p> Regresar </p>
+</a>

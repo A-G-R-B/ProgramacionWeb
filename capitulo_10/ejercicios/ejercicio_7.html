@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lanzamiento de Dados</title>
+</head>
+<body>
+
+    <h1>Simulación de dos dados</h1>
+
+    <button onclick="lanzarDados()">Lanzar dados</button>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+
+        function lanzarDados() {
+
+            // Lanzar el primer dado
+            let dado1 = Math.floor(Math.random() * 6) + 1;
+
+            // Lanzar el segundo dado
+            let dado2 = Math.floor(Math.random() * 6) + 1;
+
+            // Calcular la suma
+            let suma = dado1 + dado2;
+
+            // Mostrar resultados
+            document.getElementById("resultado").innerHTML =
+                "Primer dado: " + dado1 + "<br>" +
+                "Segundo dado: " + dado2 + "<br>" +
+                "Suma total: " + suma;
+        }
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap10.html"> 
+        <p> Regresar </p>   
+    </a>

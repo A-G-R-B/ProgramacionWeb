@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Arreglos Bidimensionales en JavaScript</title>
+</head>
+<body>
+
+    <h1>Ejercicios de Arreglos Bidimensionales</h1>
+    <h2>Arreglo de 2 filas por 3 columnas</h2>
+
+    <h3>a) Declarar y crear el arreglo t</h3>
+    <pre><code>let t = [
+    [0, 0, 0],
+    [0, 0, 0]
+];</code></pre>
+
+    <h3>b) ¿Cuántas filas tiene t?</h3>
+    <pre><code>let filas = t.length; // 2 filas</code></pre>
+
+    <h3>c) ¿Cuántas columnas tiene t?</h3>
+    <pre><code>let columnas = t[0].length; // 3 columnas</code></pre>
+
+    <h3>d) ¿Cuántos elementos tiene t?</h3>
+    <pre><code>let elementos = t.length * t[0].length; // 6 elementos</code></pre>
+
+    <h3>e) Nombres de los elementos de la fila 1</h3>
+    <pre><code>t[1][0], t[1][1], t[1][2]</code></pre>
+
+    <h3>f) Nombres de los elementos de la tercera columna</h3>
+    <pre><code>t[0][2], t[1][2]</code></pre>
+
+    <h3>g) Establecer el elemento de la fila 1 y columna 2 en cero</h3>
+    <pre><code>t[1][2] = 0;</code></pre>
+
+    <h3>h) Inicializar cada elemento de t en cero</h3>
+    <pre><code>
+t[0][0] = 0;
+t[0][1] = 0;
+t[0][2] = 0;
+t[1][0] = 0;
+t[1][1] = 0;
+t[1][2] = 0;
+    </code></pre>
+
+    <h3>i) Inicializar cada elemento usando for anidados</h3>
+    <pre><code>
+for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 3; j++) {
+        t[i][j] = 0;
+    }
+}
+    </code></pre>
+
+    <h3>j) Determinar e imprimir el valor más pequeño</h3>
+    <pre><code>
+let menor = t[0][0];
+
+for (let i = 0; i < 2; i++) {
+    for (let j = 0; j < 3; j++) {
+        if (t[i][j] < menor) {
+            menor = t[i][j];
+        }
+    }
+}
+
+document.write("Valor menor: " + menor);
+    </code></pre>
+
+    <h3>k) Mostrar los elementos de la primera fila sin repetición</h3>
+    <pre><code>
+document.write(t[0][0] + " ");
+document.write(t[0][1] + " ");
+document.write(t[0][2]);
+    </code></pre>
+
+    <h3>l) Imprimir el arreglo en formato tabular</h3>
+    <pre><code>
+// Encabezados de columnas
+document.write("   0   1   2<br>");
+
+for (let i = 0; i < 2; i++) {
+    document.write(i + " ");
+
+    for (let j = 0; j < 3; j++) {
+        document.write(t[i][j] + "   ");
+    }
+
+    document.write("<br>");
+}
+    </code></pre>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap10.html"> 
+        <p> Regresar </p>   
+    </a>

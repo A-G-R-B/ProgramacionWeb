@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.13</title>
+</head>
+<body>
+
+    <h1>Contador de caracteres</h1>
+
+    <form onsubmit="contar(event)">
+
+        <label>Ingrese el texto:</label>
+        <br><br>
+
+        <textarea id="texto" rows="5" cols="50" required></textarea>
+
+        <br><br>
+
+        <label>Carácter a buscar:</label>
+
+        <input type="text" id="caracter" maxlength="1" required>
+
+        <button type="submit">Buscar</button>
+
+    </form>
+
+    <h3 id="resultado"></h3>
+
+    <script>
+
+        function contar(event) {
+            event.preventDefault();
+
+            let texto = document.getElementById("texto").value;
+            let caracter = document.getElementById("caracter").value;
+
+            let contador = 0;
+            let posicion = texto.indexOf(caracter);
+
+            // Buscar todas las apariciones
+            while (posicion !== -1) {
+
+                contador++;
+
+                posicion = texto.indexOf(caracter, posicion + 1);
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "El carácter '" + caracter +
+                "' aparece " + contador + " veces.";
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

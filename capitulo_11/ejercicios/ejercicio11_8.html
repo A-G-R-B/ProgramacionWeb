@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.11</title>
+</head>
+<body>
+
+    <h1>Palabras en orden inverso</h1>
+
+    <form onsubmit="invertir(event)">
+
+        <label>Ingrese una frase:</label>
+        <br><br>
+
+        <input type="text" id="texto" size="50" required>
+
+        <button type="submit">Invertir</button>
+
+    </form>
+
+    <h3>Resultado:</h3>
+    <p id="resultado"></p>
+
+    <script>
+
+        function invertir(event) {
+            event.preventDefault();
+
+            let texto = document.getElementById("texto").value;
+
+            // Separar las palabras e invertir su orden
+            let palabras = texto.split(" ");
+            palabras.reverse();
+
+            document.getElementById("resultado").innerHTML =
+                palabras.join(" ");
+        }
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

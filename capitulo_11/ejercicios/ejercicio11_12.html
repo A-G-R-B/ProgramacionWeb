@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.15</title>
+</head>
+<body>
+
+    <h1>Buscar cadenas que comiencen con B</h1>
+
+    <form onsubmit="buscar(event)">
+
+        <label>Ingrese varias cadenas (una por línea):</label>
+
+        <br><br>
+
+        <textarea id="cadenas" rows="8" cols="50" required></textarea>
+
+        <br><br>
+
+        <button type="submit">Buscar cadenas</button>
+
+    </form>
+
+    <h3>Cadenas encontradas:</h3>
+
+    <textarea id="resultado" rows="8" cols="50" readonly></textarea>
+
+    <script>
+
+        function buscar(event) {
+            event.preventDefault();
+
+            let texto = document.getElementById("cadenas").value;
+
+            // Separar las cadenas por líneas
+            let cadenas = texto.split("\n");
+
+            let resultado = "";
+
+            for (let i = 0; i < cadenas.length; i++) {
+
+                let cadena = cadenas[i].trim();
+
+                // Comprobar si comienza con b
+                if (cadena.toLowerCase().startsWith("b")) {
+
+                    resultado += cadena + "\n";
+                }
+            }
+
+            document.getElementById("resultado").value =
+                resultado || "No se encontraron cadenas que comiencen con B.";
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>

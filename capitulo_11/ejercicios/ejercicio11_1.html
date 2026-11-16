@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 11.2</title>
+</head>
+<body>
+
+    <h1>Fechas y horas</h1>
+
+    <button onclick="mostrarAhora()">Ahora</button>
+    <button onclick="mostrarAyer()">Ayer</button>
+    <button onclick="mostrarDiezAnios()">Hace 10 años</button>
+    <button onclick="mostrarSemana()">Próxima semana</button>
+
+    <script>
+
+        // Mostrar fecha y hora actuales
+        function mostrarAhora() {
+            let fecha = new Date();
+            alert("Fecha y hora actuales: " + fecha);
+        }
+
+        // Mostrar fecha y hora de hace 24 horas
+        function mostrarAyer() {
+            let fecha = new Date();
+            fecha.setDate(fecha.getDate() - 1);
+            alert("Hace 24 horas: " + fecha);
+        }
+
+        // Mostrar fecha de hace 10 años
+        function mostrarDiezAnios() {
+            let fecha = new Date();
+            fecha.setFullYear(fecha.getFullYear() - 10);
+            alert("Hace 10 años: " + fecha);
+        }
+
+        // Mostrar fecha de dentro de una semana
+        function mostrarSemana() {
+            let fecha = new Date();
+            fecha.setDate(fecha.getDate() + 7);
+            alert("Dentro de una semana: " + fecha);
+        }
+
+    </script>
+
+</body>
+</html>
+
+    <a href="../ejercicios/ejercicios_cap11.html"> 
+        <p> Regresar </p>   
+    </a>
